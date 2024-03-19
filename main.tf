@@ -35,10 +35,19 @@ user_data = <<-EOF
     sudo systemctl start jenkins
   EOF
 }
+#Define the VPC
+resource "aws_vpc" "vpc" {
+  cidr_block = "10.0.0.0/16"
 
+  tags = {
+    Name        = "jenkins_vpc"
+    Environment = "demo_environment"
+    Terraform   = "true"
+  }
+}
 resource "aws_security_group" "jenkins_sg" {
   name = "jenkins-sg"
-  vpc_id = "vpc-0f905eb78e12c9db7"
+  vpc_id = aws_vpc.vpc.id
 
  ingress  {
     from_port = 22
