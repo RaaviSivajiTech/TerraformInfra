@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "aws-jenkins-ec2" {
-  ami = "ami-02d7fd1c2af6eead0"
+  ami = "ami-080e1f13689e07408"
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
   tags = {
