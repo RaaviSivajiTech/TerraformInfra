@@ -9,7 +9,7 @@ terraform {
   required_version = ">= 1.2.0"
 }
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
   access_key = "AKIARNKVYT4YJ7B5G3HS"
   secret_key = "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"
 }
